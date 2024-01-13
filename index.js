@@ -3,6 +3,9 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { createClient } from "@supabase/supabase-js";
 import { SupabaseVectorStore } from "langchain/vectorstores/supabase";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // @supabase/supabase-js
 try {
@@ -17,12 +20,9 @@ try {
 
   const sbApiKey = process.env.SUPABASE_API_KEY;
   const sbUrl = process.env.SUPABASE_URL_LC_CHATBOT;
-  const openAIApiKey = "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";
+  const openAIApiKey = process.env.OPENAI_API_KEY;
 
-  const client = createClient(
-    "https://tlfrsuzdxxxjnyyjppka.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRsZnJzdXpkeHh4am55eWpwcGthIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDUxNjI5NzUsImV4cCI6MjAyMDczODk3NX0.EegEQE-J05Q7WdN12gbhI6JcPFindaiLxSIWieT4gMo"
-  );
+  const client = createClient(sbUrl, sbApiKey);
 
   await SupabaseVectorStore.fromDocuments(
     output,
