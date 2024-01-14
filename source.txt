@@ -1,0 +1,69 @@
+The invention relates to a multifunctional aircraft with a reduced radar signature. To reduce the aircraft's radar signature (ERP), the following measures are used:
+
+    Shielding of the air intake and exhaust devices. This is done to reduce the reflection of radar waves from these surfaces.
+    Closing the in-flight refueling boom compartment with a flap. This prevents the refueling boom from being detected by radar.
+    Use of all-moving vertical tail. This reduces the area of the vertical tail and, therefore, the amount of radar energy that is reflected from it.
+    Use of conductive sealants. This ensures electrical conductivity between the airframe's structural elements and prevents the scattering of radar waves.
+    Use of radio-absorbing coatings (RPP). These coatings absorb some of the energy of radar waves, reducing the amount of energy that is reflected.
+    Metallized glazing of the lantern. This prevents radar waves from penetrating into the cockpit and reflecting off the interior surfaces.
+    Frequency-selective structures in the fairing of the antennas. These structures allow radar waves to pass through the antenna fairings while reflecting radar waves from other sources.
+    Turning the optical part of the optical sensors in the idle state with applying RPP on the back side. This reduces the reflection of radar waves from the optical sensors.
+    Shielding diaphragms in antenna compartments. These diaphragms prevent radar waves from being reflected inside the antenna compartments.
+    Deviation of the plane of the antennas from the vertical plane. This reduces the amount of radar energy that is reflected directly back to the radar.
+    Reducing the total number of antennas and using the design of the airframe units as antennas. This reduces the overall ERP of the aircraft.
+    Application of an antenna-feeder system based on low-reflective antennas in the radar wavelength range. These antennas do not protrude beyond the outer contours of the aircraft and do not reflect radar waves.
+
+By implementing these measures, the invention can reduce the ERP of a multifunctional aircraft to an average value of 0.1-1 m2. This is a significant reduction from the ERP of current aircraft, which is typically around 10-15 m2.
+
+
+Sure, here is a more detailed explanation of the invention:
+
+**Shielding of the air intake and exhaust devices**
+
+The air intake and exhaust devices are a major source of radar reflection from an aircraft. To reduce this reflection, the invention proposes to shield the air intake and exhaust devices with a material that absorbs radar waves. This material can be a metallic mesh or a radar-absorbing coating.
+
+**Closing the in-flight refueling boom compartment with a flap**
+
+The in-flight refueling boom is another potential source of radar reflection. To prevent the refueling boom from being detected by radar, the invention proposes to close the refueling boom compartment with a flap. This flap can be made of a radar-absorbing material or a material that deflects radar waves.
+
+**Use of all-moving vertical tail**
+
+The vertical tail is a large, flat surface that is also a major source of radar reflection. To reduce this reflection, the invention proposes to use an all-moving vertical tail. This type of vertical tail can be moved to different angles, which can help to reduce the amount of radar energy that is reflected from it.
+
+**Use of conductive sealants**
+
+The airframe's structural elements can create discontinuities in the aircraft's surface, which can scatter radar waves. To prevent this scattering, the invention proposes to use conductive sealants to fill the spaces between the airframe's structural elements. This will ensure that the aircraft's surface is smooth and continuous, which will help to reduce radar reflection.
+
+**Use of radio-absorbing coatings (RPP)**
+
+RPPs are materials that absorb radar waves. By applying RPPs to the airframe's surface, the invention can further reduce the amount of radar energy that is reflected from the aircraft.
+
+**Metallized glazing of the lantern**
+
+The lantern is the transparent area of the aircraft's fuselage that allows light to enter the cockpit. Radar waves can also penetrate the lantern and reflect off the interior surfaces. To prevent this reflection, the invention proposes to use metallized glazing for the lantern. This type of glazing is coated with a thin layer of metal that reflects radar waves.
+
+**Frequency-selective structures in the fairing of the antennas**
+
+The fairings of the antennas are structures that protect the antennas from the elements. However, they can also reflect radar waves. To prevent this reflection, the invention proposes to use frequencyselective structures in the fairings of the antennas. These structures are designed to allow radar waves to pass through the fairings while reflecting radar waves from other sources.
+
+**Turning the optical part of the optical sensors in the idle state with applying RPP on the back side**
+
+The optical sensors are used to detect other aircraft and objects. When the optical sensors are not in use, they can reflect radar waves. To prevent this reflection, the invention proposes to turn the optical part of the optical sensors in the idle state with applying RPP on the back side. This will reduce the reflection of radar waves from the optical sensors.
+
+**Shielding diaphragms in antenna compartments**
+
+The antenna compartments are the spaces where the antennas are stored when they are not in use. Radar waves can bounce around inside the antenna compartments and reflect off the walls. To prevent this reflection, the invention proposes to use shielding diaphragms in the antenna compartments. These diaphragms are made of a material that absorbs radar waves.
+
+**Deviation of the plane of the antennas from the vertical plane**
+
+The antennas can reflect radar waves back to the radar. To prevent this reflection, the invention proposes to deviate the plane of the antennas from the vertical plane. This will cause the radar waves to be scattered and not reflected directly back to the radar.
+
+**Reducing the total number of antennas and using the design of the airframe units as antennas**
+
+The more antennas an aircraft has, the more radar waves it will reflect back to the radar. To reduce the number of antennas, the invention proposes to use the design of the airframe units as antennas. This can be done by using the airframe's structure to amplify or deflect radar waves.
+
+**Application of an antenna-feeder system based on low-reflective antennas in the radar wavelength range**
+
+Traditional antennas can reflect radar waves. To prevent this reflection, the invention proposes to use low-reflective antennas. These antennas are designed to not reflect radar waves.
+
+By implementing these measures, the invention can significantly reduce the ERP of a multifunctional aircraft. This will make the aircraft more difficult to detect by radar, which will improve its survivability.

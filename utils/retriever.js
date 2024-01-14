@@ -1,6 +1,3 @@
-// import { SupabaseVectorStore } from "@langchain/vectorstores/supabase";
-// import { OpenAIEmbeddings } from "@langchain/embeddings/openai";
-// import { createClient } from "@supabase/supabase-js";
 import { SupabaseVectorStore } from "langchain/vectorstores/supabase";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { createClient } from "@supabase/supabase-js";
