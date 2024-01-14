@@ -1,37 +1,82 @@
-import fs from "fs/promises";
-import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
-import { createClient } from "@supabase/supabase-js";
-import { SupabaseVectorStore } from "langchain/vectorstores/supabase";
-import { OpenAIEmbeddings } from "langchain/embeddings/openai";
-import dotenv from "dotenv";
+// import { ChatOpenAI } from "@langchain/openai";
+// import { PromptTemplate } from "@langchain/core/prompts";
+// import { StringOutputParser } from "@langchain/core/output_parsers";
+import { ChatOpenAI } from "langchain/chat_models/openai";
+import { PromptTemplate } from "langchain/prompts";
+import { StringOutputParser } from "langchain/schema/output_parser";
+import { retriever } from "./utils/retriever.js";
+import { combineDocuments } from "./utils/combineDocuments.js";
+import {
+  RunnablePassthrough,
+  RunnableSequence,
+} from "langchain/schema/runnable";
 
-dotenv.config();
+document.addEventListener("submit", (e) => {
+  e.preventDefault();
+  progressConversation();
+});
 
-// @supabase/supabase-js
-try {
-  const text = await fs.readFile("scrimba-info.txt", "utf8");
-  const splitter = new RecursiveCharacterTextSplitter({
-    chunkSize: 500,
-    chunkOverlap: 50,
-    separators: ["\n\n", "\n", " ", ""], // default setting
+const openAIApiKey = import.meta.env.VITE_OPENAI_API_KEY;
+const llm = new ChatOpenAI({ openAIApiKey });
+
+const standaloneQuestionTemplate =
+  "Given a question, convert it to a standalone question. question: {question} standalone question:";
+const standaloneQuestionPrompt = PromptTemplate.fromTemplate(
+  standaloneQuestionTemplate
+);
+
+const answerTemplate = `You are a helpful and enthusiastic support bot who can answer a given question about Scrimba based on the context provided. Try to find the answer in the context. If you really don't know the answer, say "I'm sorry, I don't know the answer to that." And direct the questioner to email help@scrimba.com. Don't try to make up an answer. Always speak as if you were chatting to a friend.
+context: {context}
+question: {question}
+answer: `;
+const answerPrompt = PromptTemplate.fromTemplate(answerTemplate);
+
+const standaloneQuestionChain = standaloneQuestionPrompt
+  .pipe(llm)
+  .pipe(new StringOutputParser());
+
+const retrieverChain = RunnableSequence.from([
+  (prevResult) => prevResult.standalone_question,
+  retriever,
+  combineDocuments,
+]);
+const answerChain = answerPrompt.pipe(llm).pipe(new StringOutputParser());
+
+const chain = RunnableSequence.from([
+  {
+    standalone_question: standaloneQuestionChain,
+    original_input: new RunnablePassthrough(),
+  },
+  {
+    context: retrieverChain,
+    question: ({ original_input }) => original_input.question,
+  },
+  answerChain,
+]);
+
+async function progressConversation() {
+  const userInput = document.getElementById("user-input");
+  const chatbotConversation = document.getElementById(
+    "chatbot-conversation-container"
+  );
+  const question = userInput.value;
+  userInput.value = "";
+
+  // add human message
+  const newHumanSpeechBubble = document.createElement("div");
+  newHumanSpeechBubble.classList.add("speech", "speech-human");
+  chatbotConversation.appendChild(newHumanSpeechBubble);
+  newHumanSpeechBubble.textContent = question;
+  chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
+
+  const response = await chain.invoke({
+    question,
   });
 
-  const output = await splitter.createDocuments([text]);
-
-  const sbApiKey = process.env.SUPABASE_API_KEY;
-  const sbUrl = process.env.SUPABASE_URL_LC_CHATBOT;
-  const openAIApiKey = process.env.OPENAI_API_KEY;
-
-  const client = createClient(sbUrl, sbApiKey);
-
-  await SupabaseVectorStore.fromDocuments(
-    output,
-    new OpenAIEmbeddings({ openAIApiKey }),
-    {
-      client,
-      table: "documents",
-    }
-  );
-} catch (err) {
-  console.log(err);
+  // add AI message
+  const newAiSpeechBubble = document.createElement("div");
+  newAiSpeechBubble.classList.add("speech", "speech-ai");
+  chatbotConversation.appendChild(newAiSpeechBubble);
+  newAiSpeechBubble.textContent = response;
+  chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
 }
