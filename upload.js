@@ -15,10 +15,10 @@ try {
 
   const output = await splitter.createDocuments([result]);
 
-  const sbApiKey =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRsZnJzdXpkeHh4am55eWpwcGthIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDUxNjI5NzUsImV4cCI6MjAyMDczODk3NX0.EegEQE-J05Q7WdN12gbhI6JcPFindaiLxSIWieT4gMo";
-  const sbUrl = "https://tlfrsuzdxxxjnyyjppka.supabase.co";
-  const openAIApiKey = "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";
+  const sbApiKey = "";
+
+  const sbUrl = "";
+  const openAIApiKey = "";
 
   const client = createClient(sbUrl, sbApiKey);
 
